@@ -1,0 +1,46 @@
+{
+  "mappings": [
+    {
+      "request": {
+          "method": "OPTIONS",
+          "urlPattern": "/players(.*)"
+      },
+      "response": {
+          "status": 200,
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Encoding, Server, Transfer-Encoding",
+            "Access-Control-Allow-Methods": "POST, GET"
+          }
+      }
+    },
+    {
+      "request": {
+          "method": "GET",
+          "urlPattern": "/players\\?(?:firstName=([\\w]+))?&?(?:surname=([\\w]+))?"
+      },
+      "response": {
+          "status": 200,
+          "bodyFileName": "../__files/canonical/players/by-name.json",
+          "headers": {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*"
+          }
+      }
+    },
+    {
+      "request": {
+          "method": "GET",
+          "urlPattern": "/players\\?supplierId=([\\w]+)&supplierPlayerId=([\\w]+)"
+      },
+      "response": {
+          "status": 200,
+          "bodyFileName": "../__files/canonical/players/single-by-supplier.json",
+          "headers": {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*"
+          }
+      }
+    }
+  ]
+}

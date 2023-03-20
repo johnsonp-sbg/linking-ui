@@ -1,0 +1,21 @@
+services:
+  ui:
+    command: npm start
+    container_name: linking-ui
+    image: node:18.15.0
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    working_dir: /app
+
+  api:
+    command:
+      - "--global-response-templating"
+      - "--no-request-journal"
+    container_name: linking-api
+    image: wiremock/wiremock:2.35.0
+    ports:
+      - 8080:8080
+    volumes:
+      - ./dev:/home/wiremock

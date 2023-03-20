@@ -1,0 +1,8 @@
+#filters { margin: 0.5em 0; }
+
+.filter { margin-bottom: 0.1em; width: 50%; }
+
+.filter label { float: left; font-weight: bold; margin-right: 0.25em; text-align: right; width: 40%; }
+.filter label:after { content: ':'; }
+
+.filter input { width: calc(60% - 1em); }

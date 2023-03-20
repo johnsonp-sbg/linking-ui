@@ -1,0 +1,15 @@
+[
+  {
+    "id": "6f9f1c17-8958-4a0a-954b-80d09e4ad72e",
+    "firstName": "Nick",
+    "surname": "Green",
+    "customName": "Greeny",
+    "matchName": "N. Green",
+    "active": true,
+    "nationality": "British",
+    "birthday": "29/03/1992",
+    "teams": [
+      "de5e6e6c-332e-44fd-854d-da97b7c13075"
+    ]
+  }
+]
