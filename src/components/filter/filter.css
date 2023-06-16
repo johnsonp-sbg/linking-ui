@@ -1,8 +1,25 @@
-#filters { margin: 0.5em 0; }
+.filters {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-.filter { margin-bottom: 0.1em; width: 50%; }
+.filters-wrapper { border: solid grey 1px; margin: 0.5em 0; padding: 0; width: 45%; }
 
-.filter label { float: left; font-weight: bold; margin-right: 0.25em; text-align: right; width: 40%; }
+.filters-container { display: flex; flex-flow: column nowrap; padding: 0.5em; }
+
+.filter { margin-bottom: 0.1em; width: 100%; }
+
+.filter label {
+    float: left;
+    font-weight: bold;
+    margin-right: 0.25em;
+    text-align: right;
+    width: 40%;
+}
 .filter label:after { content: ':'; }
 
-.filter input { width: calc(60% - 1em); }
+.filter input { width: calc(60% - 1em); vertical-align: middle; }

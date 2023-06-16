@@ -2,29 +2,35 @@ import React, { FC } from 'react';
 
 import './filter.css';
 
-type Filter = {
+type FilterProps = {
   label: string;
   handler: (value: string) => void;
   value: string;
 };
 
 type Props = {
-  filters: Filter[];
+  filters: FilterProps[];
+  id?: string;
+  title?: string;
 };
 
-const Filters: FC<Props> = ({ filters = [] }) => {
-  return (<div id='filters'>
-    <h3>Filters</h3>
-    <div>
+const Filters: FC<Props> = ({ filters = [], id, title }) => {
+  return (<div id={id} className='filters-wrapper'>
+    {title && (<h3>{title}</h3>)}
+    <div className='filters-container'>
       {filters.map((filter, index) => {
-        const key = filter.label.replace(' ', '');
-        return (<div className='filter' key={index}>
-          <label htmlFor={filter.label}>{filter.label}</label>
-          <input type='text' id={key} name={key} value={filter.value} onChange={(e) => filter.handler(e.target.value)} />
-        </div>);
+        return (<Filter {...filter} key={index} />);
       })}
     </div>
   </div>)
+};
+
+export const Filter: FC<FilterProps> = ({ label, handler, value }) => {
+  const key = label.replace(' ', '');
+    return (<div className='filter'>
+      <label htmlFor={label}>{label}</label>
+      <input type='text' id={key} name={key} value={value} onChange={(e) => handler(e.target.value)} />
+    </div>);
 };
 
 export default Filters;

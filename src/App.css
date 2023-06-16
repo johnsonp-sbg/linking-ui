@@ -1,3 +1,24 @@
 h1 { margin: 0.5em; }
 
-#container { margin: 1em; }
+#container { align-items: stretch; display: flex; flex-flow: row nowrap; justify-content: flex-start; margin: 1em; max-width: 100%; }
+
+#content { padding: 1em; width: calc(100% - 10em); }
+#sidebar { padding: 1em; width: 10em; }
+
+#sidebar ul { list-style: none; padding: 0; }
+#sidebar ul ul { padding-left: 1em; }
+#sidebar li { margin: 0.5em 0; }
+#sidebar a:focus, #sidebar a:hover { cursor: pointer; }
+
+#results { overflow-x: auto; }
+table { white-space: nowrap; }
+th:not(:last-child), td:not(:last-child) { border-right: 1px solid black; }
+th, td { padding: 0 0.2em; text-align: left; }
+
+.heading { font-weight: bold; margin-right: 0.5em; }
+.heading:after { content: ':'; }
+
+.navigation:focus, .navigation:hover { background: lightblue; cursor: pointer; }
+
+label { font-weight: bold; }
+label:after { content: ':'; margin-right: 0.5em; }
