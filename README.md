@@ -12,6 +12,7 @@ This is a start to the linking UI that can be used by traders to update canonica
   - [API](#api)
     - [Adding Endpoints](#adding-endpoints)
     - [Updating/Resetting Mappings](#updatingresetting-mappings)
+  - [Building the App](#building-the-app)
   - [Create React App](#create-react-app)
     - [Getting Started with Create React App](#getting-started-with-create-react-app)
       - [Available Scripts](#available-scripts)
@@ -133,6 +134,14 @@ Rather than adding large blocks of JSON for response payloads, fixtured data fil
 If you are actively working on updating mappings/files in the wiremock back end, you don't want to repeatedly have to tear down and spin up the containers constantly. You can pick up the changes by resetting the mapping. That is done by running the following command...
 ```
 $ curl -s --request POST http://localhost:8080/__admin/mappings/reset
+```
+
+## Building the App
+
+The app is can be built into a docker image using the `docker build` command. There is a two stage build file that is in this repo.
+
+```
+$ docker build -t linking-ui:latest .
 ```
 
 ## Create React App

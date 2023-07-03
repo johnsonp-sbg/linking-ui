@@ -1,0 +1,9 @@
+node_modules
+build
+docker-compose.yml
+./**/.DS_Store
+.env
+README.md
+.git
+.gitignore
+dev
