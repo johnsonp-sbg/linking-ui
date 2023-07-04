@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import Filters from "../../components/filter";
+import Filters from '../../components/filter';
 
 const SupplierSearch = () => {
     const [supplier, setSupplier] = useState<string>('');
@@ -43,19 +43,21 @@ const SupplierSearch = () => {
         <h3>Supplier Player Search</h3>
 
         <div id='filters'>
-            <Filters filters={[
-                { label: 'Supplier', handler: setSupplier, value: supplier },
-            ]} />
-            <Filters filters={[
-                { label: 'First Name', handler: setFirstName, value: firstName },
-                { label: 'Surname', handler: setSurname, value: surname },
-            ]} id='supplier' />
-            <Filters filters={[
-                { label: 'Supplier Player ID', handler: setSupplierPlayerId, value: supplierPlayerId },
-            ]} />
-            <Filters filters={[
-                { label: 'Linked to Canonical ID', handler: setCanonicalId, value: canonicalId },
-            ]} />
+            <div className='filters-group'>
+                <Filters filters={[
+                    { label: 'Supplier', handler: setSupplier, value: supplier },
+                ]} />
+                <Filters filters={[
+                    { label: 'First Name', handler: setFirstName, value: firstName },
+                    { label: 'Surname', handler: setSurname, value: surname },
+                ]} id='supplier' />
+                <Filters filters={[
+                    { label: 'Supplier Player ID', handler: setSupplierPlayerId, value: supplierPlayerId },
+                ]} />
+                <Filters filters={[
+                    { label: 'Linked to Canonical ID', handler: setCanonicalId, value: canonicalId },
+                ]} />
+            </div>
 
             <button>Search</button>
         </div>

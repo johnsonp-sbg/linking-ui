@@ -13,6 +13,7 @@ This is a start to the linking UI that can be used by traders to update canonica
     - [Adding Endpoints](#adding-endpoints)
     - [Updating/Resetting Mappings](#updatingresetting-mappings)
   - [Building the App](#building-the-app)
+  - [To Do](#to-do)
   - [Create React App](#create-react-app)
     - [Getting Started with Create React App](#getting-started-with-create-react-app)
       - [Available Scripts](#available-scripts)
@@ -143,6 +144,14 @@ The app is can be built into a docker image using the `docker build` command. Th
 ```
 $ docker build -t linking-ui:latest .
 ```
+
+## To Do
+
+* Long term home
+* Unit testing
+* Integration testing
+* Linting
+* Deployment pipelines
 
 ## Create React App
 

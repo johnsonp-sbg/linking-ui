@@ -4,9 +4,6 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-// import Players from './components/players';
-// import Tabs, { Tab } from './components/tabs';
-// import Teams from './components/teams';
 import Layout from './components/layout';
 
 import Error from './routes/error';
@@ -82,10 +79,6 @@ const App = () => {
         <React.StrictMode>
           <RouterProvider router={router} />
         </React.StrictMode>
-      {/* <Tabs>
-        <Tab title='Players'><Players /></Tab>
-        <Tab title='Teams'><Teams /></Tab>
-      </Tabs> */}
       </div>
     </div>
   );

@@ -5,9 +5,6 @@ WORKDIR /buildingsite
 
 COPY . .
 
-# This will need a clever way of being defined per envionment I think
-ENV PUBLIC_URL=http://localhost:3000/
-
 RUN npm install
 RUN npm run build
 

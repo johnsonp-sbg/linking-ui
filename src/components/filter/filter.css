@@ -1,4 +1,4 @@
-.filters {
+.filters-group {
     align-content: flex-start;
     align-items: flex-start;
     display: flex;
@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.filters-wrapper { border: solid grey 1px; margin: 0.5em 0; padding: 0; width: 45%; }
+.filters-wrapper { border: solid grey 1px; margin: 0.5em 0; padding: 0; width: 49%; }
 
 .filters-container { display: flex; flex-flow: column nowrap; padding: 0.5em; }
 

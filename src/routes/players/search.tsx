@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import Filters from "../../components/filter";
+import Filters from '../../components/filter';
 
 const Search = () => {
     const [supplier, setSupplier] = useState<string>('');
@@ -74,27 +74,29 @@ const Search = () => {
         <h3>Canonical Player Search</h3>
 
         <div id='filters'>
-            <Filters filters={[
-                { label: 'Canonical ID', handler: setCanonicalId, value: canonicalId },
-             ]} />
+            <div className='filters-group'>
+                <Filters filters={[
+                    { label: 'Canonical ID', handler: setCanonicalId, value: canonicalId },
+                ]} />
 
-            <Filters filters={[
-                { label: 'First Name', handler: setFirstName, value: firstName },
-                { label: 'Surname', handler: setSurname, value: surname },
-             ]} />
+                <Filters filters={[
+                    { label: 'First Name', handler: setFirstName, value: firstName },
+                    { label: 'Surname', handler: setSurname, value: surname },
+                ]} />
 
-            <Filters filters={[
-                { label: 'Supplier', handler: setSupplier, value: supplier },
-                { label: 'Supplier Player ID', handler: setSupplierPlayerId, value: supplierPlayerId },
-             ]} />
+                <Filters filters={[
+                    { label: 'Supplier', handler: setSupplier, value: supplier },
+                    { label: 'Supplier Player ID', handler: setSupplierPlayerId, value: supplierPlayerId },
+                ]} />
 
-            <Filters filters={[
-                { label: 'Team ID', handler: setTeamId, value: teamId },
-             ]} />
+                <Filters filters={[
+                    { label: 'Team ID', handler: setTeamId, value: teamId },
+                ]} />
 
-            <Filters filters={[
-                { label: 'Competition', handler: setCompetition, value: competition },
-             ]} />
+                <Filters filters={[
+                    { label: 'Competition', handler: setCompetition, value: competition },
+                ]} />
+            </div>
 
             <button>Search</button>
         </div>

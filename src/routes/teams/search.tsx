@@ -59,12 +59,15 @@ const Search = () => {
         <h3>Team Search</h3>
 
         <div id='filters'>
-            <Filters filters={[
-                { label: 'Name', handler: setName, value: name },
-                { label: 'Area', handler: setArea, value: area },
-                { label: 'Team Type', handler: setTeamType, value: teamType },
-                { label: 'Is National', handler: setIsNational, value: isNational },
-             ]} />
+            <div className='filters-group'>
+                <Filters filters={[
+                    { label: 'Name', handler: setName, value: name },
+                    { label: 'Area', handler: setArea, value: area },
+                    { label: 'Team Type', handler: setTeamType, value: teamType },
+                    { label: 'Is National', handler: setIsNational, value: isNational },
+                ]} />
+            </div>
+
             <button>Search</button>
         </div>
 

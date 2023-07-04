@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Details: FC = () => {
     const { id } = useParams();

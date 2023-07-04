@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "rm -rf build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,5 +50,8 @@
   "bugs": {
     "url": "https://github.com/ngr05/linking-ui/issues"
   },
-  "homepage": "https://github.com/ngr05/linking-ui#readme"
+  "homepage": ".",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
