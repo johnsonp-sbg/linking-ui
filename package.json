@@ -23,7 +23,8 @@
     "prebuild": "rm -rf build",
     "build": "react-scripts build",
     "test": "npm run test:unit && npm run test:integration:local",
-    "test:integration": "echo 'to be implemented'; exit 1;",
+    "test:integration": "playwright test",
+    "test:integration:report": "playwright show-report",
     "test:integration:local": "APP_URL=http://localhost:3000 npm run test:integration",
     "test:integration:test": "echo 'not implemented'; exit 1;",
     "test:integration:staging": "echo 'not implemented'; exit 1;",
@@ -62,7 +63,8 @@
   },
   "homepage": ".",
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@playwright/test": "^1.35.1"
   },
   "jest": {
     "coverageThreshold": {

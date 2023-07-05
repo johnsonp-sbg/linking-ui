@@ -169,6 +169,8 @@ Integration tests have initially been set up using [Playwrite](https://playwrigh
 
 For the local tests, there is a hook set up to spin up the environment before the tests. If the tests are successful, there is also a hook to tear it down again. If there is a failure in the tests, the clean up hook will not be invoked.
 
+In order to view the last report, run `npm run test:integration:report`.
+
 ## To Do
 
 * Long term home
