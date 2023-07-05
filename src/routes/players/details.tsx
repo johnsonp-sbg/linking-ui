@@ -1,13 +1,6 @@
 import React, { type FC, type ReactElement, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
-interface SupplierData {
-  supplier: string
-  supplierPlayerId: string
-  firstName: string
-  surname: string
-  birthday: string | null
-}
+import { type SupplierPlayer } from '../../models/player';
 
 const Details: FC = (): ReactElement => {
   const { id } = useParams();
@@ -24,20 +17,31 @@ const Details: FC = (): ReactElement => {
   }
 
   // FOR DEVELOPMENT ONLY
-  const suppliers: SupplierData[] = [
+  const supplierList: SupplierPlayer[] = [
     {
-      supplier: 'Opta',
+      supplier: {
+        supplierName: 'Opta',
+        supplierId: 1,
+      },
       supplierPlayerId: '9993',
-      firstName: 'Cristiano',
-      surname: 'Ronaldo',
-      birthday: '1985-02-02',
+      canonicalPlayerId: '9993',
+      canonicalPlayerFirstName: 'Cristiano',
+      canonicalPlayerSurname: 'Ronaldo',
+      supplierSurname: 'Ronaldo',
+      supplierBirthday: '1985-02-02',
+      isConfirmed: true,
     },
     {
-      supplier: 'TXOdds',
+      supplier: {
+        supplierName: 'TXOdds',
+        supplierId: 2,
+      },
       supplierPlayerId: '12939',
-      firstName: 'Chris',
-      surname: 'Ronaldo',
-      birthday: null,
+      canonicalPlayerId: '12939',
+      canonicalPlayerFirstName: 'Chris',
+      canonicalPlayerSurname: 'Ronaldo',
+      supplierSurname: 'Ronaldo',
+      isConfirmed: true,
     },
   ];
 
@@ -82,12 +86,12 @@ const Details: FC = (): ReactElement => {
           </tr>
         </thead>
         <tbody>
-          {suppliers.map((supplier: SupplierData, key: number) => (<tr key={key}>
-            <td>{supplier.supplier}</td>
-            <td>{supplier.supplierPlayerId}</td>
-            <td>{supplier.firstName}</td>
-            <td>{supplier.surname}</td>
-            <td>{supplier.birthday}</td>
+          {supplierList.map((sp: SupplierPlayer, key: number) => (<tr key={key}>
+            <td>{sp.supplier.supplierName}</td>
+            <td>{sp.supplierPlayerId}</td>
+            <td>{sp.supplierFirstName}</td>
+            <td>{sp.supplierSurname}</td>
+            <td>{sp.supplierBirthday}</td>
             <td><button>Edit</button></td>
             <td><button>Delete</button></td>
           </tr>))}

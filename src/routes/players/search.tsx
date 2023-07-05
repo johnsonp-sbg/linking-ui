@@ -2,28 +2,8 @@ import React, { type ReactElement, useState, type FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Filters from '../../components/filter';
-
-interface Player {
-  playerId: string | null
-  firstName: string
-  surname: string
-  customFullName: string
-  matchName: string
-  active: boolean
-  nationality: string
-  birthday: string
-  teams: Team[]
-}
-
-interface Team {
-  teamId: string
-  name: string
-  code: string
-  area: string
-  isNational: boolean
-  type: string
-  homeVenue: string
-}
+import { type CanonicalPlayer as Player } from '../../models/player';
+import { type CanonicalTeam as Team } from '../../models/team';
 
 const Search: FC = (): ReactElement => {
   const [supplier, setSupplier] = useState<string>('');
@@ -44,17 +24,23 @@ const Search: FC = (): ReactElement => {
       surname: 'Shearer',
       customFullName: '',
       matchName: 'A. Shearer',
-      active: true,
-      nationality: 'England',
+      isActive: true,
+      nationality: {
+        areaCode: 'ENG',
+        areaName: 'England',
+      },
       birthday: '1980-01-01',
       teams: [
         {
           teamId: '2345-2345',
           name: 'Newcastle',
           code: '',
-          area: '',
+          area: {
+            areaCode: 'ENG',
+            areaName: 'England',
+          },
           isNational: false,
-          type: '',
+          teamType: '',
           homeVenue: '',
         },
       ],
@@ -65,26 +51,35 @@ const Search: FC = (): ReactElement => {
       surname: 'dos Santos Aveiro',
       customFullName: 'Cristiano Ronaldo',
       matchName: 'C. Ronaldo',
-      active: true,
-      nationality: 'Portugal',
+      isActive: true,
+      nationality: {
+        areaCode: 'POR',
+        areaName: 'Portugal',
+      },
       birthday: '1985-02-02',
       teams: [
         {
           teamId: '3456-3466',
           name: 'Al Nassr',
           code: '',
-          area: '',
+          area: {
+            areaCode: 'SA',
+            areaName: 'Saudi Arabia',
+          },
           isNational: false,
-          type: '',
+          teamType: '',
           homeVenue: '',
         },
         {
           teamId: '2345-6343',
           name: 'Portugal',
           code: '',
-          area: '',
+          area: {
+            areaCode: 'POR',
+            areaName: 'Portugal',
+          },
           isNational: true,
-          type: '',
+          teamType: '',
           homeVenue: '',
         },
       ],
@@ -147,9 +142,9 @@ const Search: FC = (): ReactElement => {
               <td>{player.surname}</td>
               <td>{player.customFullName}</td>
               <td>{player.matchName}</td>
-              <td>{player.nationality}</td>
+              <td>{player.nationality.areaName}</td>
               <td>{player.birthday}</td>
-              <td>{player.teams.map((team: Team) => team.name).join('; ')}</td>
+              <td>{(player.teams ?? []).map((team: Team) => team.name).join('; ')}</td>
             </tr>
           ))}
         </tbody>

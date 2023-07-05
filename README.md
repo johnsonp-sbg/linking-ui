@@ -6,6 +6,7 @@ This is a start to the linking UI that can be used by traders to update canonica
 
 - [Linking UI](#linking-ui)
     - [Table of Contents](#table-of-contents)
+  - [Dependencies](#dependencies)
   - [Local Development](#local-development)
   - [UI](#ui)
     - [Routing](#routing)
@@ -26,6 +27,11 @@ This is a start to the linking UI that can be used by traders to update canonica
         - [`npm run build`](#npm-run-build)
         - [`npm run eject`](#npm-run-eject)
       - [Learn More](#learn-more)
+
+## Dependencies
+
+* Docker
+* NodeJS (to link, test or build locally. Developement can be done without installing anything)
 
 ## Local Development
 

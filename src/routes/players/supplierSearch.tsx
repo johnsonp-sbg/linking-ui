@@ -2,18 +2,7 @@ import React, { type ReactElement, useState, type FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Filters from '../../components/filter';
-
-interface Player {
-  supplier: string
-  supplierPlayerId: string
-  playerId: string | null
-  firstName: string
-  surname: string
-  birthday: string
-  confirmed: boolean
-  canonicalFirstName: string
-  canonicalSurname: string
-}
+import { type SupplierPlayer as Player } from '../../models/player';
 
 const SupplierSearch: FC = (): ReactElement => {
   const [supplier, setSupplier] = useState<string>('');
@@ -27,26 +16,32 @@ const SupplierSearch: FC = (): ReactElement => {
   // FOR DEVELOPMENT ONLY
   const players: Player[] = [
     {
-      supplier: 'BetRadar',
+      supplier: {
+        supplierName: 'BetRadar',
+        supplierId: 1,
+      },
       supplierPlayerId: '9993',
-      playerId: '1512-3211',
-      firstName: 'Cristiano',
-      surname: 'Ronaldo',
-      birthday: '1985-02-02',
-      confirmed: true,
-      canonicalFirstName: 'Cristiano',
-      canonicalSurname: 'Ronaldo',
+      canonicalPlayerId: '1512-3211',
+      supplierFirstName: 'Cristiano',
+      supplierSurname: 'Ronaldo',
+      supplierBirthday: '1985-02-02',
+      isConfirmed: true,
+      canonicalPlayerFirstName: 'Cristiano',
+      canonicalPlayerSurname: 'Ronaldo',
     },
     {
-      supplier: 'TXOdds',
+      supplier: {
+        supplierName: 'TXOdds',
+        supplierId: 2,
+      },
       supplierPlayerId: '12939',
-      playerId: null,
-      firstName: 'Cristiano',
-      surname: 'Ronaldo',
-      birthday: '1985-02-02',
-      confirmed: true,
-      canonicalFirstName: 'Cristiano',
-      canonicalSurname: 'Ronaldo',
+      canonicalPlayerId: '',
+      supplierFirstName: 'Cristiano',
+      supplierSurname: 'Ronaldo',
+      supplierBirthday: '1985-02-02',
+      isConfirmed: true,
+      canonicalPlayerFirstName: 'Cristiano',
+      canonicalPlayerSurname: 'Ronaldo',
     },
   ];
 
@@ -89,12 +84,12 @@ const SupplierSearch: FC = (): ReactElement => {
         </thead>
         <tbody>
           {players.map((player: Player, key: number) => {
-            return (<tr className='navigation' key={key} onClick={() => { if (player.playerId !== null) navigate(`/players/${player.playerId}`); }}>
-              <td>{player.supplier}</td>
+            return (<tr className='navigation' key={key} onClick={() => { if (player.supplierPlayerId !== null) navigate(`/players/${player.supplierPlayerId}`); }}>
+              <td>{player.supplier.supplierName}</td>
               <td>{player.supplierPlayerId}</td>
-              <td>{player.firstName}</td>
-              <td>{player.surname}</td>
-              <td>{player.playerId} {player.canonicalFirstName} {player.canonicalSurname}</td>
+              <td>{player.canonicalPlayerFirstName}</td>
+              <td>{player.canonicalPlayerSurname}</td>
+              <td>{player.supplierPlayerId} {player.canonicalPlayerFirstName} {player.canonicalPlayerSurname}</td>
             </tr>);
           })}
         </tbody>

@@ -1,28 +1,41 @@
 import React, { type FC, type ReactElement } from 'react';
+import { type CanonicalTeam as Team } from '../../models/team';
 
 const Details: FC = (): ReactElement => {
   // FOR DEVELOPMENT ONLY
-  const team: any = {
+  const team: Team = {
     teamId: '6641-9666',
     name: 'Newcastle Jets',
-    customName: '',
     code: '',
-    area: 'Australia',
+    area: {
+      areaCode: '',
+      areaId: '',
+      areaName: 'Australia',
+    },
     isNational: false,
-    type: 'Default',
+    teamType: 'Default',
     homeVenue: '',
     players: [
       {
         playerId: '7772-8811',
-        customFullName: 'Bruce Johnson',
+        matchName: 'Bruce Johnson',
+        surname: '',
+        isActive: true,
+        nationality: {},
       },
       {
         playerId: '8124-9611',
-        customFullName: 'James Bruce',
+        matchName: 'James Bruce',
+        surname: '',
+        isActive: true,
+        nationality: {},
       },
       {
         playerId: '6611-2928',
-        customFullName: 'Alan Trout',
+        matchName: 'Alan Trout',
+        surname: '',
+        isActive: true,
+        nationality: {},
       },
     ],
   };
@@ -34,7 +47,7 @@ const Details: FC = (): ReactElement => {
     <div className='details'>
       <p><span className='heading'>Team ID</span>{team.teamId}</p>
       <p><span className='heading'>Name</span>{team.name}</p>
-      <p><span className='heading'>Area</span>{team.area}</p>
+      <p><span className='heading'>Area</span>{team.area.areaName}</p>
     </div>
 
     <div id='players'>
@@ -46,7 +59,7 @@ const Details: FC = (): ReactElement => {
           </tr>
         </thead>
         <tbody>
-          {team.players.map((player: any, key: number) => (<tr key={key}>
+          {(team.players ?? []).map((player: any, key: number) => (<tr key={key}>
             <td>{player.playerId}</td>
             <td>{player.customFullName}</td>
           </tr>))}
