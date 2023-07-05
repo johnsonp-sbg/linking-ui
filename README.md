@@ -13,6 +13,9 @@ This is a start to the linking UI that can be used by traders to update canonica
     - [Adding Endpoints](#adding-endpoints)
     - [Updating/Resetting Mappings](#updatingresetting-mappings)
   - [Building the App](#building-the-app)
+  - [Testing](#testing)
+    - [Unit Tests](#unit-tests)
+    - [Integration Tests](#integration-tests)
   - [To Do](#to-do)
   - [Create React App](#create-react-app)
     - [Getting Started with Create React App](#getting-started-with-create-react-app)
@@ -144,6 +147,27 @@ The app is can be built into a docker image using the `docker build` command. Th
 ```
 $ docker build -t linking-ui:latest .
 ```
+
+## Testing
+
+In order to run both the unit and integration tests, simply run `npm test`. It will initially run the unit tests. If they are all successful, the integration tests will then be executed against a local setup.
+
+### Unit Tests
+
+The unit tests are implemented using Jest and the React Testing Library. A great resourse into this can be found on [freeCodeCamp](https://www.freecodecamp.org/news/how-to-write-unit-tests-in-react/). The tests can be executed by running `npm run test:unit` or `npm run test:unit:watch`.
+
+### Integration Tests
+
+Integration tests have initially been set up using [Playwrite](https://playwright.dev/). With there being multiple instances of the application, the url needs to be passed to the tests by using the environment variable `APP_URL`. Becuase of the different instances, run commands have been set for each...
+
+| Environment  | Command                               | App URL               |
+|--------------|---------------------------------------|-----------------------|
+| Local        | `npm run test:integration:local`      | http://localhost:3000 |
+| Test         | `npm run test:integration:test`       | TBC                   |
+| Staging      | `npm run test:integration:staging`    | TBC                   |
+| Production   | `npm run test:integration:production` | TBC                   |
+
+For the local tests, there is a hook set up to spin up the environment before the tests. If the tests are successful, there is also a hook to tear it down again. If there is a failure in the tests, the clean up hook will not be invoked.
 
 ## To Do
 
