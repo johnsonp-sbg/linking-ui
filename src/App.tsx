@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type FC, type ReactElement } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -22,7 +22,7 @@ import TeamsSearch from './routes/teams/search';
 
 import './App.css';
 
-const App = () => {
+const App: FC = (): ReactElement => {
   const router = createBrowserRouter([
     {
       path: '/',
@@ -66,7 +66,7 @@ const App = () => {
           element: <Team />,
         },
       ],
-    }
+    },
   ]);
 
   return (
@@ -82,6 +82,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;

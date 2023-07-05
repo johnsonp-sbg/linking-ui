@@ -16,6 +16,7 @@ This is a start to the linking UI that can be used by traders to update canonica
   - [Testing](#testing)
     - [Unit Tests](#unit-tests)
     - [Integration Tests](#integration-tests)
+  - [Linting](#linting)
   - [To Do](#to-do)
   - [Create React App](#create-react-app)
     - [Getting Started with Create React App](#getting-started-with-create-react-app)
@@ -171,12 +172,15 @@ For the local tests, there is a hook set up to spin up the environment before th
 
 In order to view the last report, run `npm run test:integration:report`.
 
+## Linting
+
+There have been two linting commands set up for convenience. To run the linter run `npm run lint`. To fix issues that can be automatically, run `npm run lint:fix`.
+
 ## To Do
 
 * Long term home
 * Unit testing
 * Integration testing
-* Linting
 * Deployment pipelines
 
 ## Create React App
